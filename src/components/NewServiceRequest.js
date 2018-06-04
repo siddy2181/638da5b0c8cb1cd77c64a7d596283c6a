@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import {Form, FormControl, FormGroup, Button} from 'react-bootstrap';
+import postRequest from '../api/postRequest';
 
-var rp = require('request-promise');
+
 /* global $*/
-var bigInt=require('big-integer');
+const bigInt = require('big-integer');
 
 class NewServiceRequest extends Component {
     handleSubmit = event => {
 
         event.preventDefault();
-        var self = this;
+        const self = this;
         self.props.messageUpdate("", "");
-        var options = {
-            method: 'POST',
-            uri: 'http://104.211.31.153/enqueue',
-            body: {
-                id: this.state.workRequestNumber,
-                createdTime: new Date().toISOString()
-            },
-            json: true // Automatically stringifies the body to JSON
-        };
-
-        rp(options)
-            .then(function (parsedBody) {
+        postRequest()
+            .then(function () {
                 self.props.messageUpdate("success", "Successfully added work request");
                 self.setState({workRequestNumber: ''});
             })
@@ -38,7 +29,6 @@ class NewServiceRequest extends Component {
 
     constructor(props, context) {
         super(props, context);
-        let container;
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validateWorkOrder = this.validateWorkOrder.bind(this);
@@ -51,7 +41,8 @@ class NewServiceRequest extends Component {
     validateWorkOrder()
     {
         try {
-            if ((bigInt(this.state.workRequestNumber).compare('9223372036854775807') <= 0) && (bigInt(this.state.workRequestNumber).compare('0') > 0)) {
+            if ((bigInt(this.state.workRequestNumber).compare('9223372036854775807') <= 0) &&
+                (bigInt(this.state.workRequestNumber).compare('0') > 0)) {
 
                 return true;
 
@@ -67,7 +58,7 @@ class NewServiceRequest extends Component {
         }
     }
 
-    getValidationState(e) {
+    getValidationState() {
         if (this.state.workRequestNumber === '')
             return null;
         if(this.validateWorkOrder())

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ProjectAssign.iml" filepath="$PROJECT_DIR$/.idea/ProjectAssign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SmartQueue.iml" filepath="$PROJECT_DIR$/.idea/SmartQueue.iml" />
     </modules>
   </component>
 </project>

@@ -2,7 +2,7 @@ import rp from "request-promise";
 
 export default function makeRequest(url, method) {
     const baseUrl = "http://104.211.31.153"
-    let opts = {
+    let options = {
 
         uri: baseUrl + url,
         headers: {
@@ -13,5 +13,5 @@ export default function makeRequest(url, method) {
         method : method
     };
 
-    return rp(opts)
+    return rp(options)
 }

@@ -13,9 +13,8 @@
     "react-scripts": "1.1.4",
     "react-toastr": "^3.0.0",
     "request": "^2.87.0",
-    "request-promise": "^4.2.2",
-    "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react": "^0.81.0"
+    "request-promise": "^4.2.2"
+
   },
   "scripts": {
     "start": "react-scripts start",

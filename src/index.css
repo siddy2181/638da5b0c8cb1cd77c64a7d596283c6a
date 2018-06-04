@@ -1,13 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Segoe Script";
+  font-family: sans-serif;
 }
 
 .App {
   text-align: center;
 }
 
-.row {
-  margin: 20px;
-}
