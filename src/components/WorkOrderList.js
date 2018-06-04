@@ -65,42 +65,42 @@ class WorkOrderList extends Component {
             });
 
     }
-//http://104.211.31.153/ids
 
 
     render() {
         console.log("render")
         let WorkOrders = this.state.WorkOrders;
         return (
-            <div>
-                <div align="center">
-                    <Button  bsSize="default" bsStyle="warning" active onClick={() => this.dequeueFirstOrder()}>
-                        Highest priority Work Order
-                    </Button>
-                    <span>
-                        <Button bsSize="default" bsStyle="info" active onClick={() => this.getAllOrders()}>
+            <div className="row">
+                <div className="row">
+                    <div className="col-lg-2 col-md-2 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
+                        <Button bsStyle="primary" onClick={() => this.dequeueFirstOrder()}>
+                            Highest priority Work Order
+                        </Button>
+                    </div>
+                    <div className="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                        <Button bsStyle="info" onClick={() => this.getAllOrders()}>
                             Display All Work Orders
-                    </Button>
-
-                    </span>
-
+                        </Button>
+                    </div>
                 </div>
-
-
-                <Table striped bordered condensed hover>
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Time of Creation</th>
-                        <th>Work Order Type</th>
-                        <th>Done</th>
-                    </tr>
-                    </thead>
-                    <WorkOrder
-                        orders = {WorkOrders}
-                        deleteWorkOrder={this.deleteWorkOrder.bind(this)}
-                    />
-                </Table>
+                <br/>
+                <div className="row">
+                    <Table striped bordered condensed hover>
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Time of Creation</th>
+                            <th>Work Order Type</th>
+                            <th>Done</th>
+                        </tr>
+                        </thead>
+                        <WorkOrder
+                            orders={WorkOrders}
+                            deleteWorkOrder={this.deleteWorkOrder.bind(this)}
+                        />
+                    </Table>
+                </div>
             </div>
         )
     }

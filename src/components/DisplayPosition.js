@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
-import {Form,FormControl,FormGroup,Button} from 'react-bootstrap';
-import makeRequest from "../api/makeRequest";
+import {Form, FormControl, FormGroup, Button} from 'react-bootstrap';
+import makeRequest from "../api/makeRequest.js";
 
+//var rp = require('request-promise');
 /* global $*/
-var bigInt=require('big-integer');
+const bigInt = require('big-integer');
 
 class DisplayPosition extends Component {
-    constructor(props, context) {
-        super(props, context);
+    handleSubmit = event => {
+        event.preventDefault();
 
-        this.handleChange = this.handleChange.bind(this);
-
-        this.validateWorkOrder=this.validateWorkOrder.bind(this);
-        this.state = {
-            workRequestNumber: ' ',
-            positionNumber: ' '
-        };
+        let self = this;
+        self.props.messageUpdate("", "");//clear
+        makeRequest("http://104.211.31.153/ids/" + this.state.workRequestNumber, 'GET')
+            .then(function (result) {
+                console.log(result);
+                self.setState({status: result});
+                self.setState({workRequestNumber: ''});
+            })
+            .catch(function (err) {
+                self.setState({status: ''});
+                self.setState({workRequestNumber: ''});
+                self.props.messageUpdate("error", "Status not available for given work order");
+            });
     }
+
     validateWorkOrder()
     {
         try{
@@ -37,8 +45,27 @@ class DisplayPosition extends Component {
             return false;
         }
     }
+
+    constructor(props, context) {
+        super(props, context);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.validateWorkOrder = this.validateWorkOrder.bind(this);
+
+        this.state = {
+            workRequestNumber: '',
+            status: ''
+        };
+    }
+
+    handleChange(e) {
+        e.preventDefault();
+
+        this.setState({workRequestNumber: e.target.value});
+    }
+
     getValidationState(e) {
-        if(this.state.workRequestNumber==null)
+        if (this.state.workRequestNumber === '')
             return null;
         if(this.validateWorkOrder())
         {
@@ -49,67 +76,25 @@ class DisplayPosition extends Component {
             return "error";
         }
     }
-    handleChange(e) {
-        e.preventDefault();
 
-        this.setState({ workRequestNumber: e.target.value });
-    }
-
-    getDisplayPosition(id){
-        // console.log(id)
-        let self = this;
-        makeRequest("http://104.211.31.153/ids/" + id, 'GET')
-            .then(function (result) {
-                self.setState({WorkOrders : result})
-            })
-            .catch(function (err) {
-                console.log(err)
-            });
-    }
-
-
-    handleSubmit = event => {
-        event.preventDefault();
-
-
-        var options = {
-            method: 'POST',
-            uri: 'http://104.211.31.153/enqueue',
-            body: {
-                id: this.state.workRequestNumber,
-                createdTime: new Date().toISOString()
-            },
-            json: true // Automatically stringifies the body to JSON
-        };
-
-        rp(options)
-            .then((parsedBody)=> {
-                // POST succeeded...
-            })
-            .catch(function (err) {
-                // POST failed...
-            });
-    }
     render() {
-        const DisplayIdPosition=()=>
-        {
-            return <div><br/><hr/><h3>The position of your Work Order is: {this.state.positionNumber} </h3></div>;
-        }
 
         return (
             <div>
                 <br/><hr/>
-                <Form inline onSubmit={this.getIdPosition(this.state.workRequestNumber)}>
+                <Form inline onSubmit={this.handleSubmit}>
                     <FormGroup id="workNumberGroup" controlId="formInlineName" validationState={this.getValidationState()}>
                         <FormControl type="text" placeholder="Work Request Number" value={this.state.workRequestNumber} onChange={this.handleChange}/>
                         <FormControl.Feedback />
                     </FormGroup>{' '}
                     {console.log(this.props.validationState)}
-                    <Button bsStyle="primary" disabled={!this.validateWorkOrder()} type="submit">Check Position</Button>
+                    <Button bsStyle="primary" disabled={!this.validateWorkOrder()} type="submit">Check Status</Button>
                 </Form>
+                <br/>
+                <hr/>
+                <h3>{this.state.status !== '' ? "ID:" + this.state.status.id + " | Position:" + this.state.status.position : null}</h3>
             </div>
         );
     }
 }
-
 export default DisplayPosition;
