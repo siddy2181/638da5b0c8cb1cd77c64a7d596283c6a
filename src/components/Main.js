@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from './components/Home'
-import ServiceWork from './components/ServiceWork'
+import Home from './Home'
+import ServiceWork from './ServiceWork'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster

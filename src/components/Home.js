@@ -1,14 +1,20 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react';
 import NewServiceRequest from './NewServiceRequest';
 import {OverlayTrigger, Button, Tooltip, Panel} from 'react-bootstrap';
 import DisplayPosition from './DisplayPosition';
+import moment from 'moment';
 
-var Alert = require('react-bootstrap').Alert;
-var rp = require('request-promise');
+const Alert = require('react-bootstrap').Alert;
+const rp = require('request-promise');
 
 
 /* global $*/
 class Home extends Component{
+
+    /**
+     *
+     * @param props
+     */
     constructor(props) {
 
         super(props);
@@ -27,6 +33,8 @@ class Home extends Component{
         this.displayMessage = this.displayMessage.bind(this);
         this.handleDismiss = this.handleDismiss.bind(this);
     }
+
+
     showForm()
     {
         this.setState({ displayForm: true });
@@ -54,10 +62,16 @@ class Home extends Component{
             });
     }
 
+
     handleDismiss() {
         this.setState({displayError: false, displaySuccess: false, message: ''});
     }
 
+    /**
+     *
+     * @param status
+     * @param msg
+     */
     displayMessage(status, msg) {
         if (status === "error") {
             this.setState({displayError: true, displaySuccess: false, message: msg});
@@ -73,7 +87,11 @@ class Home extends Component{
     render(){
         const DisplayWaitTime=()=>
         {
-            return <div><br/><hr/><h3>{this.state.waitTime} seconds</h3></div>;
+            return <div><br/>
+                <hr/>
+                <h3>{moment().startOf('day')
+                    .seconds(this.state.waitTime)
+                    .format('HH:mm:ss')} </h3></div>;
         }
         const tooltip = (
             <Tooltip id="tooltip">
@@ -98,11 +116,13 @@ class Home extends Component{
                         <h4>Error</h4>
                         <p>{this.state.message}</p>
                     </Alert>
+
                     <Alert bsStyle="success" style={{display: this.state.displaySuccess ? 'block' : 'none'}}
                            onDismiss={this.handleDismiss}>
                         <h4>Added</h4>
                         <p>{this.state.message}</p>
                     </Alert>
+
                     <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <Panel>
                             <Panel.Heading>Work Orders</Panel.Heading>
@@ -116,6 +136,7 @@ class Home extends Component{
                             </Panel.Body>
                         </Panel>
                     </div>
+
                     <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <Panel>
                             <Panel.Heading>Check Wait Time</Panel.Heading>
@@ -129,6 +150,7 @@ class Home extends Component{
                         </Panel>
                     </div>
                 </div>
+
                 <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <Panel>

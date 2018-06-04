@@ -14,7 +14,7 @@ class DisplayPosition extends Component {
         self.props.messageUpdate("", "");//clear
         makeRequest("http://104.211.31.153/ids/" + this.state.workRequestNumber, 'GET')
             .then(function (result) {
-                console.log(result);
+
                 self.setState({status: result});
                 self.setState({workRequestNumber: ''});
             })

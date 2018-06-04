@@ -13,7 +13,7 @@ class WorkOrderList extends Component {
     }
     componentWillMount(){
         let self = this;
-        makeRequest("http://104.211.31.153/ids", "GET")
+        makeRequest("/ids", "GET")
             .then(function (result) {
                 self.setState({WorkOrders : result})
             })
@@ -24,7 +24,7 @@ class WorkOrderList extends Component {
 
     getAllOrders(){
         let self = this;
-        makeRequest("http://104.211.31.153/ids", "GET")
+        makeRequest("/ids", "GET")
             .then(function (result) {
                 self.setState({WorkOrders : result})
             })
@@ -37,8 +37,8 @@ class WorkOrderList extends Component {
     // DELETE Logic
     deleteWorkOrder(id){
         let self = this;
-        makeRequest("http://104.211.31.153/ids/" + id, 'DELETE')
-            .then(function (result) {
+        makeRequest("/ids/" + id, 'DELETE')
+            .then(function () {
                 let WO = self.state.WorkOrders.filter(function(workOrder){
                     return workOrder.id !== id;
                 })
@@ -53,7 +53,7 @@ class WorkOrderList extends Component {
 
     dequeueFirstOrder(){
         let self = this;
-        makeRequest("http://104.211.31.153/dequeue", 'GET')
+        makeRequest("/dequeue", 'GET')
             .then(function (result) {
                 let WO = self.state.WorkOrders.filter(function(workOrder){
                     return workOrder.id === result.id;
