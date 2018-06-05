@@ -1,17 +1,16 @@
-import rp from "request-promise";
 
-export default function makeRequest(url, method) {
-    const baseUrl = "http://104.211.31.153";
-    let options = {
+var rp = require("request-promise");
 
-        uri: baseUrl + url,
+module.exports =  function makeRequest(url, method) {
+    let opts = {
+        uri: url,
         headers: {
-            'Accept': '*/*',
+            'Accept': '/',
             'User-Agent': 'Request-Promise'
         },
         json: true,
         method : method
     };
 
-    return rp(options)
+    return rp(opts)
 }
