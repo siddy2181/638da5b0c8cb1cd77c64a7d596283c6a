@@ -22,7 +22,7 @@ class WorkOrderList extends Component {
             .then(function (result) {
                 self.setState({WorkOrders : result});
                 debugger;
-                if(self.state.WorkOrders.length==0)
+                if(self.state.WorkOrders.length===0)
                     self.setState({displayMessage : true});
                 else
                     self.setState({displayMessage : false});
@@ -40,7 +40,7 @@ class WorkOrderList extends Component {
         makeRequest("/ids", "GET")
             .then(function (result) {
                 self.setState({WorkOrders : result});
-                if(self.state.WorkOrders.length==0)
+                if(self.state.WorkOrders.length===0)
                     self.setState({displayMessage : true});
                 else
                     self.setState({displayMessage : false});
@@ -63,7 +63,7 @@ class WorkOrderList extends Component {
                     return workOrder.id !== id;
                 })
                 self.setState({WorkOrders : WO});
-                if(self.state.WorkOrders.length==0)
+                if(self.state.WorkOrders.length===0)
                     self.setState({displayMessage : true});
                 else
                     self.setState({displayMessage : false});
