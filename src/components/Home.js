@@ -3,12 +3,13 @@ import NewServiceRequest from './NewServiceRequest';
 import {OverlayTrigger, Button, Tooltip, Panel} from 'react-bootstrap';
 import DisplayPosition from './DisplayPosition';
 import moment from 'moment';
+import makeRequest from '../api/makeRequest'
 
 const Alert = require('react-bootstrap').Alert;
 const rp = require('request-promise');
 
 
-/* global $*/
+/* global */
 class Home extends Component{
 
     /**
@@ -45,19 +46,12 @@ class Home extends Component{
     }
     checkWaitTime()
     {
-        var op = {
-            uri: 'http://104.211.31.153/wait-time/'+new Date().toISOString(),
-            headers: {
-                'Accept': 'application/json',
-                'User-Agent': 'Request-Promise',
-            },
-            json: true // Automatically parses the JSON string in the response
-        };
-        rp(op)
+        makeRequest("/wait-time/"+new Date().toISOString(), "GET")
             .then(response =>
                 this.setState({waitTime: response.averageTimeInQueueSeconds, displayWaitTime: true})
             )
             .catch(function (err) {
+                console.exception(err);
                 // API call failed...
             });
     }

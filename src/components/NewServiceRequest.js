@@ -3,7 +3,7 @@ import {Form, FormControl, FormGroup, Button} from 'react-bootstrap';
 import postRequest from '../api/postRequest';
 
 
-/* global $*/
+/* global */
 
 const bigInt = require('big-integer');
 
