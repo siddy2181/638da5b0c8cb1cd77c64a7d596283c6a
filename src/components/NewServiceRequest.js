@@ -4,6 +4,7 @@ import postRequest from '../api/postRequest';
 
 
 /* global $*/
+
 const bigInt = require('big-integer');
 
 class NewServiceRequest extends Component {
@@ -12,7 +13,7 @@ class NewServiceRequest extends Component {
         event.preventDefault();
         const self = this;
         self.props.messageUpdate("", "");
-        postRequest()
+        postRequest(this.state.workRequestNumber, new Date().toISOString())
             .then(function () {
                 self.props.messageUpdate("success", "Successfully added work request");
                 self.setState({workRequestNumber: ''});
