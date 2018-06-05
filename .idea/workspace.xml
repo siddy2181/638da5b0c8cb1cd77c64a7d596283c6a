@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="464cc40a-88a9-4379-914e-60941a87e607" name="Default" comment="Modify Readme file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/makeRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/makeRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__test__/button.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/__test__/button.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,15 +47,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="button.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../SangitApp/button.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,25 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../SangitApp/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="makeRequest.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="makeRequest.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/makeRequest.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -101,9 +74,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="button.test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="button.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/__test__/button.test.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -149,6 +126,7 @@
         <option value="$PROJECT_DIR$/sample.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/api/makeRequest.js" />
+        <option value="$PROJECT_DIR$/__test__/button.test.js" />
       </list>
     </option>
   </component>
@@ -252,7 +230,7 @@
       <option name="presentableId" value="Default" />
       <updated>1528002963062</updated>
       <workItem from="1528002964549" duration="70444000" />
-      <workItem from="1528163184119" duration="3286000" />
+      <workItem from="1528163184119" duration="4010000" />
     </task>
     <task id="LOCAL-00001" summary="BootStrap/CSS changed">
       <created>1528095778123</created>
@@ -293,12 +271,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73730000" />
+    <option name="totallyTimeSpent" value="74454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.47431508" visible="true" weight="0.16693164" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.47431508" weight="0.16693164" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -306,7 +285,7 @@
       <window_info anchor="bottom" id="Run" order="6" weight="0.57191783" />
       <window_info id="npm" order="0" sideWeight="0.5017123" side_tool="true" weight="0.290938" />
       <window_info id="Structure" order="2" sideWeight="0.7780612" side_tool="true" weight="0.23529412" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.43493152" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.09246575" />
       <window_info id="Favorites" order="1" sideWeight="0.52568495" side_tool="true" weight="0.23529412" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -325,14 +304,14 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.47431508" visible="true" weight="0.16693164" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.47431508" visible="true" weight="0.16693164" />
       <window_info id="Structure" order="2" sideWeight="0.7780612" side_tool="true" weight="0.23529412" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.57191783" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32888147" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.43493152" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.09246575" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32876712" />
       <window_info anchor="bottom" id="Message" order="4" />
@@ -571,13 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="231" column="11" lean-forward="true" selection-start-line="231" selection-start-column="11" selection-end-line="231" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -592,8 +564,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__test__/button.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/api/makeRequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../SangitApp/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -602,10 +578,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/makeRequest.js">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="231" column="11" lean-forward="true" selection-start-line="231" selection-start-column="11" selection-end-line="231" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__test__/button.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
         </state>
       </provider>
     </entry>
