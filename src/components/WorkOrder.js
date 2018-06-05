@@ -1,12 +1,21 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 
+
+/**
+ * Work Order Details
+ */
 class WorkOrder extends React.Component {
     constructor() {
         super();
         this.workOrderCategory = this.workOrderCategory.bind(this)
     }
 
+    /**
+     *This function will return the html element label with color codes respectively
+     * @param workOrderType
+     * @returns {*}
+     */
     workOrderCategory(workOrderType) {
         if (workOrderType === "MANAGEMENT") {
             return (<span className="label label-danger">{workOrderType}</span>);

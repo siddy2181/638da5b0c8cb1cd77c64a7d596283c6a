@@ -7,6 +7,8 @@ import makeRequest from "../api/makeRequest.js";
 const bigInt = require('big-integer');
 
 class DisplayPosition extends Component {
+
+    //this method will call the api to pull a particular work order request
     handleSubmit = event => {
         event.preventDefault();
 
@@ -25,6 +27,11 @@ class DisplayPosition extends Component {
             });
     }
 
+
+    /**
+     * Validation logic for the work request number
+     * @returns {boolean}
+     */
     validateWorkOrder()
     {
         try{
@@ -86,6 +93,7 @@ class DisplayPosition extends Component {
                     </FormGroup>{' '}
                     {console.log(this.props.validationState)}
                     <Button bsStyle="primary" disabled={!this.validateWorkOrder()} type="submit">Check Status</Button>
+
                 </Form>
                 <br/>
                 <hr/>

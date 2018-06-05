@@ -10,6 +10,10 @@ const rp = require('request-promise');
 
 
 /* global */
+
+/**
+ * This component will provide the functionality to Add new work request order, check average waiting time and status of given work request order
+ */
 class Home extends Component{
 
     /**
@@ -38,12 +42,16 @@ class Home extends Component{
 
     showForm()
     {
-        this.setState({ displayForm: true });
+        this.state={ displayForm: true };
     }
 
     showStatus() {
         this.setState({displayStatus: true});
     }
+
+    /**
+     * This function will call the api method to retrieve average wait time for the work request orders
+     */
     checkWaitTime()
     {
         makeRequest("/wait-time/"+new Date().toISOString(), "GET")
@@ -62,10 +70,11 @@ class Home extends Component{
     }
 
     /**
-     *
+     * Method: Displays suitable msg for response
      * @param status
      * @param msg
      */
+    //This method will be called from child components to display respective success/error notification
     displayMessage(status, msg) {
         if (status === "error") {
             this.setState({displayError: true, displaySuccess: false, message: msg});
@@ -74,7 +83,7 @@ class Home extends Component{
             this.setState({displaySuccess: true, displayError: false, message: msg});
         }
         else {
-            this.setState({displayError: false, displaySuccess: false, message: ''});
+            this.setState({displayError: false, displaySuccess: false, message: ' '});
         }
     }
 

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
-
+//Header will render the navigation bar with the links
 class Header extends Component{
     render(){
 

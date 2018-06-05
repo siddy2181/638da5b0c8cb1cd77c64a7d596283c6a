@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Table,Button} from 'react-bootstrap'
+import {Table,Button,Alert} from 'react-bootstrap'
 import WorkOrder from './WorkOrder'
 import makeRequest from "../api/makeRequest"
 
@@ -8,25 +8,42 @@ class WorkOrderList extends Component {
     constructor(){
         super();
         this.state = {
-            WorkOrders : []
+            WorkOrders : [],
+            displayMessage:true
         }
     }
+
+    /**
+     * Displays All workorders when the component mounts
+     */
     componentWillMount(){
         let self = this;
         makeRequest("/ids", "GET")
             .then(function (result) {
-                self.setState({WorkOrders : result})
+                self.setState({WorkOrders : result});
+                debugger;
+                if(self.state.WorkOrders.length==0)
+                    self.setState({displayMessage : true});
+                else
+                    self.setState({displayMessage : false});
             })
             .catch(function (err) {
                 console.log(err)
             });
     }
 
+    /**
+     * This function will call the api to fetch all the available work request orders
+     */
     getAllOrders(){
         let self = this;
         makeRequest("/ids", "GET")
             .then(function (result) {
-                self.setState({WorkOrders : result})
+                self.setState({WorkOrders : result});
+                if(self.state.WorkOrders.length==0)
+                    self.setState({displayMessage : true});
+                else
+                    self.setState({displayMessage : false});
             })
             .catch(function (err) {
                 console.log(err)
@@ -34,7 +51,10 @@ class WorkOrderList extends Component {
 
     }
 
-    // DELETE Logic
+    /**
+     * DELETE Logic
+     * @param id
+     */
     deleteWorkOrder(id){
         let self = this;
         makeRequest("/ids/" + id, 'DELETE')
@@ -42,7 +62,11 @@ class WorkOrderList extends Component {
                 let WO = self.state.WorkOrders.filter(function(workOrder){
                     return workOrder.id !== id;
                 })
-                self.setState({WorkOrders : WO})
+                self.setState({WorkOrders : WO});
+                if(self.state.WorkOrders.length==0)
+                    self.setState({displayMessage : true});
+                else
+                    self.setState({displayMessage : false});
             })
             .catch(function (err) {
                 console.log(err)
@@ -51,6 +75,10 @@ class WorkOrderList extends Component {
 
 
 
+    /**
+     *This function will call the api to get the first
+     * highest priority work reqeust order and remove it once another action is triggered
+     */
     dequeueFirstOrder(){
         let self = this;
         makeRequest("/dequeue", 'GET')
@@ -58,7 +86,11 @@ class WorkOrderList extends Component {
                 let WO = self.state.WorkOrders.filter(function(workOrder){
                     return workOrder.id === result.id;
                 })
-                self.setState({WorkOrders : WO})
+                self.setState({WorkOrders : WO});
+                if(self.state.WorkOrders.length==0)
+                    self.setState({displayMessage : true});
+                else
+                    self.setState({displayMessage : false});
             })
             .catch(function (err) {
                 console.log(err)
@@ -72,7 +104,11 @@ class WorkOrderList extends Component {
         let WorkOrders = this.state.WorkOrders;
         return (
             <div className="row">
-                <div className="row">
+                <Alert bsStyle="info" style={{display: this.state.displayMessage ? 'block' : 'none'}}>
+                    <h4>Congratulations</h4>
+                    <p>You have zero pending work request orders</p>
+                </Alert>
+                <div className="row" style={{display: !this.state.displayMessage ? 'block' : 'none'}}>
                     <div className="col-lg-2 col-md-2 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
                         <Button bsStyle="primary" onClick={() => this.dequeueFirstOrder()}>
                             Highest priority Work Order
@@ -85,7 +121,7 @@ class WorkOrderList extends Component {
                     </div>
                 </div>
                 <br/>
-                <div className="row">
+                <div className="row" style={{display: !this.state.displayMessage ? 'block' : 'none'}}>
                     <Table striped bordered condensed hover>
                         <thead>
                         <tr>

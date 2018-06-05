@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Form, FormControl, FormGroup, Button} from 'react-bootstrap';
+import {Form, FormControl, FormGroup, Button,Collapse} from 'react-bootstrap';
 import postRequest from '../api/postRequest';
 
 
@@ -7,6 +7,10 @@ import postRequest from '../api/postRequest';
 
 const bigInt = require('big-integer');
 
+
+/**
+ *This component provides the functionality to add new work order request
+ */
 class NewServiceRequest extends Component {
     handleSubmit = event => {
 
@@ -39,6 +43,10 @@ class NewServiceRequest extends Component {
         };
     }
 
+    /**
+     * Validation logic for the work request number
+     * @returns {boolean}
+     */
     validateWorkOrder()
     {
         try {
@@ -55,6 +63,7 @@ class NewServiceRequest extends Component {
             }
         }
         catch (e) {
+            console.log(e);
             return false;
         }
     }
@@ -78,12 +87,15 @@ class NewServiceRequest extends Component {
         this.setState({workRequestNumber: e.target.value});
     }
 
+
     render() {
+
 
         return (
             <div>
                 <br/>
                 <hr/>
+                <div id="form">
                 <Form inline onSubmit={this.handleSubmit}>
                     <FormGroup id="workNumberGroup" controlId="formInlineName"
                                validationState={this.getValidationState()}>
@@ -92,9 +104,13 @@ class NewServiceRequest extends Component {
                         <FormControl.Feedback/>
                     </FormGroup>{' '}
                     {console.log(this.props.validationState)}
+
                     <Button bsStyle="primary" disabled={!this.validateWorkOrder()} type="submit">Add Work
                         Request</Button>
+
+
                 </Form>
+                </div>
             </div>
         );
     }
