@@ -1,5 +1,5 @@
 {
-  "name": "priority-queue",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,13 +13,22 @@
     "react-scripts": "1.1.4",
     "react-toastr": "^3.0.0",
     "request": "^2.87.0",
-    "request-promise": "^4.2.2"
-
+    "request-promise": "^4.2.2",
+    "sinon": "^5.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.1.0",
+    "jest-enzyme": "^6.0.1"
   }
 }
