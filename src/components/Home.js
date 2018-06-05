@@ -42,7 +42,7 @@ class Home extends Component{
 
     showForm()
     {
-        this.state={ displayForm: true };
+        this.setState({ displayForm: true });
     }
 
     showStatus() {

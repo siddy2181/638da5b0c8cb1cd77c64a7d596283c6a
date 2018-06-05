@@ -50,8 +50,11 @@ To run those 3 commands you can just do
 
 ## Unit Testing
 
-### Mocha test 
 
+### With Jest and Enzyme
+````
+$jest
+````
 
 ## Languages & tools
 ### IDE

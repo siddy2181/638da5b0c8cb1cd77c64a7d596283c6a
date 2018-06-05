@@ -1,7 +1,7 @@
 import rp from 'request-promise';
 
 export default function makeRequest(url, method)  {
-    const baseUrl = "http://104.211.31.153";
+    const baseUrl = "http://localhost:8080";
     let opts = {
         uri: baseUrl + url,
         headers: {
