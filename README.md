@@ -86,6 +86,13 @@ Webstorm by Jetbrains
 ### Bootstrap
 
 - For templeting and styling
+- Theme used : https://bootswatch.com/3/flatly/
+
+### Libraries used
+- react-bootstrap https://www.npmjs.com/package/react-bootstrap
+- BigInteger.js https://www.npmjs.com/package/big-integer
+
+
 
 
 
