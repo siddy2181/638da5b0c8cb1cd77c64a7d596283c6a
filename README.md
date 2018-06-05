@@ -9,27 +9,29 @@ And please use the appropriate [Editorconfig](http://editorconfig.org/) plugin f
 
 
 
-   ## Install
+   ## Clone and Setup 
    ```sh
    $ git clone https://github.com/siddy2181/638da5b0c8cb1cd77c64a7d596283c6a.git
-   $ cd ProjectAssign
+   $ cd SmartQueue
+  ```
+  ### Install Dependencies
+  The package.jason folder contains all the dependencies under #dependencies. The following command installs all the dependencies required to run the project
+  
+   ```sh 
    $ npm install
-   $ npm run build
-   $ npm start
-   $ open http://localhost:3000
    ```
 
-### Configure app
+### Configure api
 
-Open `\ProjectAssign\src\api\makeRequest.js` then edit it with the url where you have setup:
-
-- backend api
+Open `\SmartQueue\src\api\makeRequest.js` and `\SmartQueue\src\api\postRequest.js`then edit it with the url where you have setup:
+backend api.
 
 
 ## Start & watch
-
+   ```sh
     $ npm start
-
+    $ open http://localhost:3000
+```
 ## Simple build for production
 
     $ npm run build
@@ -65,6 +67,7 @@ Then it will try a production build.
 ---
 
 ## Unit Testing
+
 ### Mocha test 
 
 
@@ -84,5 +87,5 @@ Webstorm by Jetbrains
 
 - For templeting and styling
 
-_Autoprefixer_ is included and use [caniuse.com](http://caniuse.com/) database to avoid outdated prefixes. 
+
 
