@@ -45,7 +45,8 @@ class DisplayPosition extends Component {
         }
         catch(e)
         {
-            console.exception(e);
+            console.log(e);
+
             return false;
         }
     }

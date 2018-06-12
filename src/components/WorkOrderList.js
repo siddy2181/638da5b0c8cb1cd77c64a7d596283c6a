@@ -104,10 +104,6 @@ class WorkOrderList extends Component {
         let WorkOrders = this.state.WorkOrders;
         return (
             <div className="row">
-                <Alert bsStyle="info" style={{display: this.state.displayMessage ? 'block' : 'none'}}>
-                    <h4>Congratulations</h4>
-                    <p>You have zero pending work request orders</p>
-                </Alert>
                 <div className="row" style={{display: !this.state.displayMessage ? 'block' : 'none'}}>
                     <div className="col-lg-2 col-md-2 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
                         <Button bsStyle="primary" onClick={() => this.dequeueFirstOrder()}>
@@ -120,6 +116,12 @@ class WorkOrderList extends Component {
                         </Button>
                     </div>
                 </div>
+
+                <Alert bsStyle="info" style={{display: this.state.displayMessage ? 'block' : 'none'}}>
+                    <h4>Congratulations</h4>
+                    <p>You have serviced work order requests</p>
+                </Alert>
+
                 <br/>
                 <div className="row" style={{display: !this.state.displayMessage ? 'block' : 'none'}}>
                     <Table striped bordered condensed hover>
