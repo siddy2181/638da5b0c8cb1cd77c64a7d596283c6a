@@ -87,7 +87,7 @@ class WorkOrderList extends Component {
                     return workOrder.id === result.id;
                 })
                 self.setState({WorkOrders : WO});
-                if(self.state.WorkOrders.length==0)
+                if(self.state.WorkOrders.length===0)
                     self.setState({displayMessage : true});
                 else
                     self.setState({displayMessage : false});

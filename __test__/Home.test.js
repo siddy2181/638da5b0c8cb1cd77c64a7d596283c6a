@@ -18,7 +18,7 @@ describe('<Home/>', () => {
   });
 
   test('renders everything', () => {
-    expect(wrapper.find('div')).toHaveLength(6);
+    expect(wrapper.find('div')).toHaveLength(9);
   });
 
   test('Show add service request form', () => {

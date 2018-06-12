@@ -20,15 +20,23 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "eject": "react-scripts eject"
   },
   "jest": {
     "verbose": true
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.1.0",
-    "jest-enzyme": "^6.0.1"
+    "jest-enzyme": "^6.0.1",
+    "react-test-renderer": "^16.4.0"
   }
 }
